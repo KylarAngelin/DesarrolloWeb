@@ -1,0 +1,22 @@
+
+<div class="row main p-5">
+  <div class="col-lg-3 col-md-3 col-sm-12">
+    <div class="media" *ngFor="let order of carritoService.orders">
+      <div class="media-left">
+        <a href="#">
+          <img style="height: 50px; width: 60%; display: block;" [src]="'/assets/img/'+order.nombre+'.jpg'"  alt="{{order.nombre}}">
+        </a>
+      </div>
+      <div class="media-body">
+        <h4 class="media-heading">{{order.nombre}}</h4>
+        <p>Unidades: {{order.cantidad}}</p>
+        <p>Subtotal: {{order.precio * order.cantidad | currency}}</p>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-3 col-md-3 col-sm-12">
+    <h4>Total: {{pendingOrders()}}</h4>
+    <a [routerLink]="['../products']" class="btn btn-default" role="button">Cancelar</a>
+    <a (click)="pagar()" class="btn btn-success" role="button">Pagar</a>
+  </div>
+</div>

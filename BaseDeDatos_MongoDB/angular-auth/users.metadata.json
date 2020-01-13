@@ -1,0 +1,1 @@
+{"options":{},"indexes":[{"v":{"$numberInt":"2"},"key":{"_id":{"$numberInt":"1"}},"name":"_id_","ns":"angular-auth.users"}],"uuid":"148c31148fc04c8da798611f4c85a4e4"}

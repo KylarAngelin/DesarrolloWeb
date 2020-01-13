@@ -1,0 +1,36 @@
+<div class="card-body">
+  <h5>¿Qué estás buscando?</h5>
+  <div class="input-group">
+    <input type="text" class="form-control" placeholder="Buscar producto" aria-describedby="basic-addon1" (keyup)="actualizarProductos($event, filtro.value)" #filtro>
+  </div>
+</div>
+<div class="row">
+  <div class="col-lg-4" *ngFor="let data of dataVisible">
+    <div class="card bg-light mb-3">
+      <h3 class="card-header">{{data.nombre}}</h3>
+      <img style="height: 200px; width: 100%; display: block;" [src]="'/assets/img/'+data.nombre+'.jpg'"  alt="{{data.nombre}}">
+      <div class="card-body">
+        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+      </div>
+
+      <div class="card-body">
+        <div class="row p-2 d-flex justify-content-between">
+          <span class="badge badge-pill badge-primary p-1.5">Precio</span>
+          <span class="badge badge-pill badge-info p-1.5"> $ {{data.precio}}</span>
+        </div>
+        <div class="row p-2 d-flex justify-content-between">
+          <span class="badge badge-pill badge-primary p-1.5">Cantidad disponible</span>
+          <span class="badge badge-pill badge-info p-1.5">{{data.cdisponible}} U.</span>
+        </div>
+        <div class="row p-2 d-flex justify-content-between">
+          <input id="cantidad" name="cantidad" class="form-control form-control-sm" style= "width:50%" type="number" value="1" min="1" max="1000" step="1" #cantidad/>
+          <button (click)="addProducto(cantidad.value, data.nombre, data.precio, data.cdisponible)" type="button" class="btn btn-warning" >Añadir</button>
+        </div>
+      </div>
+      <!--
+      <div class="card-footer text-muted">
+        2 days ago
+      </div>-->
+    </div>
+  </div>
+</div>
